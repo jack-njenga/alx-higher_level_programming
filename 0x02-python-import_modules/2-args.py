@@ -7,6 +7,7 @@ if __name__ == "__main__":
 
     if len(argv) < 2:
         print("{:} arguments.".format(0))
+        exit(0)
     elif len(argv) == 2:
         print("{:} argument:".format(1))
     else:
