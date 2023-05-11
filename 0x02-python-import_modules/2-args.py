@@ -4,15 +4,16 @@ if __name__ == "__main__":
     import sys
 
     argv = sys.argv
-
-    if len(argv) < 2:
-        print("{:} arguments.".format(0))
+    l = len(argv) - 1
+    if l == 0:
+        print("0 arguments.")
         exit(0)
-    elif len(argv) == 2:
-        print("{:} argument:".format(1))
+    if l == 1:
+        print("{} argument:".format(1))
     else:
-        i = 1
-        print("{:} arguments:".format(len(argv) - 1))
-        while i < len(argv):
-            print("{:}: {:s}".format(i, argv[i]))
-            i += 1
+        print("{} arguments:".format(len(argv) - 1))
+
+    i = 1
+    while i < len(argv):
+        print("{}: {}".format(i, argv[i]))
+        i += 1
