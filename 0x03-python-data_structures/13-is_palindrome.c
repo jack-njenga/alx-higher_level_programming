@@ -20,6 +20,8 @@ int is_palindrome(listint_t **head)
 		i++;
 		curr = curr->next;
 	}
+	if (i == 0)
+		return (1);
 	arr = malloc(sizeof(int) * i);
 	if (!arr)
 		return (0);
