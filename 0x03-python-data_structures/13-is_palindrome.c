@@ -22,6 +22,8 @@ int is_palindrome(listint_t **head)
 	}
 	if (i == 0)
 		return (1);
+	if (i == 1)
+		return (0);
 	arr = malloc(sizeof(int) * i);
 	if (!arr)
 		return (0);
@@ -36,7 +38,6 @@ int is_palindrome(listint_t **head)
 	i--;
 	while (i >= n)
 	{
-		/*printf("arr[%ld] : %d <==> arr[%ld] : %d\n", n, arr[n], i, arr[i]);*/
 		if (arr[n] != arr[i])
 		{
 			free(arr);
