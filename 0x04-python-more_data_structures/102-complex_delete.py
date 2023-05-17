@@ -8,4 +8,3 @@ def complex_delete(a_dictionary, value):
             continue
 
     return (a_dictionary)
-
