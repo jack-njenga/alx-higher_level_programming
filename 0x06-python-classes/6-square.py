@@ -77,13 +77,13 @@ class Square:
         """
         prints the square in the stdout with '#' character.
         """
-        if (self.__position[1] > 0):
-            pos = 0
-        else:
-            pos = self.__position[0]
-        if (self.__size == 0):
+        size = self.__size
+        pos = self.__position[0]
+        if (size == 0):
             print("")
-        else:
-            for i in range(self.__size):
-                print("_" * pos, end="")
-                print("#" * self.__size)
+        for n in range(self.__position[1]):
+            print("")
+        for i in range(self.__size):
+            print("_" * pos, end="")
+            print("#" * size, end="")
+            print("")

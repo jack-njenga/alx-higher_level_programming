@@ -1,8 +1,8 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 """
-Square implementation V2
-addition of private size instace attribute to V1
+Square implementation V1
+addition of private size instace attribute to V0
 """
 
 
@@ -12,9 +12,8 @@ class Square:
     """
     def __init__(self, size):
         """
-        Initialize new square.
+        Initialization
         Args:
-            self (self): self identity
             size (int): Size of the square
         """
         self.__size = size
