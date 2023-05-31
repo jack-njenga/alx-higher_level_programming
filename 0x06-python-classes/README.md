@@ -1,10 +1,13 @@
-## Python - Classes and Objects
+## Python - Classes and Objects (OOP)
 
 OOP is a totally new concept for all of you (especially those who think they know about it :)). It’s VERY important that you read at least all the material that is listed bellow
 
 [Object Oriented Programming](https://python.swaroopch.com/oop.html)
+
 [Object Oriented Programming](https://python-course.eu/oop/object-oriented-programming.php)
+
 [Properties vs. Getters and Setters](https://python-course.eu/oop/properties-vs-getters-and-setters.php)
+
 [inheritance](https://www.youtube.com/watch?v=W9SViazIH00)
 
 ![](https://python-course.eu/images/oop/private_property_no_trespassing_200w.webp)
