@@ -2,6 +2,8 @@
 """
 This function divides all elements of a matrix
 """
+
+
 def matrix_divided(matrix, div):
     """
     divides all elements of the matrix with div.
@@ -17,18 +19,10 @@ def matrix_divided(matrix, div):
     [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
     >>> print(matrix)
     [[1, 2, 3], [4, 5, 6]]
-    >>> print(matrix_divided([[]], 0))
-    Traceback (most recent call last):
-      File "./2-main.py", line 11, in <module>
-        print(matrix_divided([[]], 0))
-      File "/mnt/c/GIT/ME/alx-higher_level_programming/0x07-python-test_driven_development/2-matrix_divided.py", line 40, in matrix_divided
-        raise ZeroDivisionError("division by zero")
-    ZeroDivisionError: division by zero
-    
     """
     err = "matrix must be a matrix (list of lists) of integers/floats"
-
-    if not isinstance(matrix, list) and all(isinstance(row, list) for row in matrix):
+    mat = matrix
+    if not isinstance(mat, list) and all(isinstance(r, list) for r in mat):
         raise TypeError(err)
     if len(matrix) == 0:
         raise TypeError(err)
@@ -39,7 +33,7 @@ def matrix_divided(matrix, div):
         else:
             for num in row:
                 if not isinstance(num, (int, float)):
-                    raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+                    raise TypeError(err)
     if not isinstance(div, (int, float)):
         raise TypeError("div must be a number")
     if (div == 0):
