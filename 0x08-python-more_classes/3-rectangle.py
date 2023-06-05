@@ -19,7 +19,7 @@ class Rectangle:
         """
         self.__width = width
         self.__height = height
-        self.add_to_class()
+        self.number_of_instances += 1
 
     @property
     def width(self):
