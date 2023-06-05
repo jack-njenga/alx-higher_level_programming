@@ -1,0 +1,14 @@
+This is 5-text_indentation.py doctests
+
+Imports:
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Doctexts:
+>>> text_indentation("Hello. World? nice: to meet you")
+Hello.
+<BLANKLINE>
+ World?
+<BLANKLINE>
+ nice:
+<BLANKLINE>
+ to meet you

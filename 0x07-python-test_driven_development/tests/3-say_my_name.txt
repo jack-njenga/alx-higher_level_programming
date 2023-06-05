@@ -1,0 +1,15 @@
+This is 3-say_my_name.py doctest
+
+imports:
+>>> say_my_name = __import__("3-say_my_name").say_my_name
+
+Doctest:
+>>> say_my_name("John", "Smith")
+My name is John Smith
+>>>
+>>> say_my_name("Lucy", "W")
+My name is Lucy W
+>>> say_my_name("Lucy")
+My name is Lucy 
+>>> say_my_name("")
+My name is  
