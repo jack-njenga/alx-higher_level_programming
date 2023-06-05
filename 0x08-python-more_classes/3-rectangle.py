@@ -48,7 +48,7 @@ class Rectangle:
         return (self.__height)
 
     @height.setter
-    def heigth(self, value):
+    def height(self, value):
         """
         heigth setter
         """
@@ -75,7 +75,7 @@ class Rectangle:
 
     def __str__(self):
         """
-        returns a tring to be peinted
+        returns a string to be printed
         """
         ret = ""
         if (self.area() == 0):
@@ -86,49 +86,3 @@ class Rectangle:
                 ret += "\n"
 
         return ret
-
-    def __repr__(self):
-        """
-        """
-        ans = "Rectangle({}, {})".format(self.__width, self.__height)
-        return ans
-
-    @classmethod
-    def __del__(cls):
-        """
-        """
-        print("Bye rectangle...")
-        cls.number_of_instances -= 1
-
-    @classmethod
-    def add_to_class(cls):
-        """
-        adds a new instance
-        """
-        cls.number_of_instances += 1
-
-    @staticmethod
-    def bigger_or_equal(rect_1, rect_2):
-        """
-        Returns the biggest rectangle
-        """
-        if not isinstance(rect_1, Rectangle):
-            raise TypeError("rect_1 must be an instance of Rectangle")
-        if not isinstance(rect_2, Rectangle):
-            raise TypeError("rect_2 must be an instance of Rectangle")
-        if (rect_1.area() >= rect_2.area()):
-            return rect_1
-        else:
-            return rect_2
-
-    @classmethod
-    def square(cls, size=0):
-        """
-        returns a new Rectangle instance with width == height == size
-        """
-        if not isinstance(size, int):
-            raise TypeError("size must be an integer")
-        elif size < 0:
-            raise ValueError("size must be >= 0")
-        else:
-            return cls(size, size)
