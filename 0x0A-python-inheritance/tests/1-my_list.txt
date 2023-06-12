@@ -1,17 +1,26 @@
 This is 1-my_list.py doctest
 
->>> Mylist = __import__("1-my_list").MyList
->>> my_list = Mylist()
->>> my_list.append(1)
->>> my_list.append(4)
->>> my_list.append(2)
->>> my_list.append(3)
->>> my_list.append(5)
->>> my_list.print_sorted()
-[1, 2, 3, 4, 5]
->>> print(my_list)
-[1, 4, 2, 3, 5]
->>> my_list.pop()
-5
->>> len(my_list)
-4
+importing
+	>>> Mylist = __import__("1-my_list").MyList
+
+init:
+	>>> my_list = Mylist()
+	>>> my_list.print_sorted()
+	[]
+
+
+	>>> my_list.append("tomatoes")
+	>>> my_list.append("eggs")
+	>>> my_list.append("pinaples")
+	>>> my_list.append("and")
+	>>> my_list.append("oranges")
+	>>> my_list.print_sorted()
+	['and', 'eggs', 'oranges', 'pinaples', 'tomatoes']
+	>>> my_list
+	['tomatoes', 'eggs', 'pinaples', 'and', 'oranges']
+	>>> my_list[-3:]
+	['pinaples', 'and', 'oranges']
+	>>> my_list.pop()
+	'oranges'
+	>>> len(my_list)
+	4

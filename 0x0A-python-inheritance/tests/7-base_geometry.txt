@@ -1,10 +1,27 @@
 This is 7-base_geometry.py doctest
 
->>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
->>> bg = BaseGeometry()
->>> bg.integer_validator("my_int", 111)
->>> try:
-...	bg.integer_validator("|", "|||")
-... except Exception as e:
-...	print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] | must be an integer
+importing the module:
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+test case 1:
+	>>> bg = BaseGeometry()
+	>>> isinstance(bg, BaseGeometry)
+	True
+
+test case 2
+	>>> bg.area(10)
+	Traceback (most recent call last):
+	TypeError: area() takes 1 positional argument but 2 were given
+
+test case 3
+	>>> bg.integer_validator("invalid int", -1)
+	Traceback (most recent call last):
+	ValueError: invalid int must be greater than 0
+
+test case 4
+	>>> bg.integer_validator("and another", [3, 3])
+	Traceback (most recent call last):
+	TypeError: and another must be an integer
+
+test case 5
+	>>> bg.integer_validator("another invalid", True)
