@@ -3,6 +3,7 @@
 This is a rebel integer implementation
 """
 
+
 class MyInt(int):
     """
     This is a rebel integer implementation
@@ -25,5 +26,3 @@ class MyInt(int):
         Overrides the != operator
         """
         return (super().__eq__(value))
-
-
