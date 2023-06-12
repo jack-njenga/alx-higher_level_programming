@@ -8,6 +8,11 @@ V2
 
 class BaseGeometry(object):
     """
+    BaseGeometry
+    V2
     """
     def area(self):
+        """
+        raises an Exception if area is not implemented
+        """
         raise Exception("area() is not implemented")

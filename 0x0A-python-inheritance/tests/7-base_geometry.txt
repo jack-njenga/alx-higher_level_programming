@@ -1,0 +1,10 @@
+This is 7-base_geometry.py doctest
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("my_int", 111)
+>>> try:
+...	bg.integer_validator("|", "|||")
+... except Exception as e:
+...	print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] | must be an integer
