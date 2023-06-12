@@ -1,13 +1,11 @@
 #!/usr/bin/python3
-
 """
 BaseGeometry (based on 6-base_geometry.py).
 V3
 """
-Base = __import__("6-base_geometry").BaseGeometry
 
 
-class BaseGeometry(Base):
+class BaseGeometry():
     """
     BaseGeometry
     V3
@@ -15,7 +13,7 @@ class BaseGeometry(Base):
 
     def area(self):
         """
-        raises an exception if area is not implement
+        This area implentation that raises an exception
         """
         raise Exception("area() is not implemented")
 
@@ -23,10 +21,8 @@ class BaseGeometry(Base):
         """
         this method validates the value
         """
-        if type(value) == int:
+        if isinstance(value, int):
             if value <= 0:
-                raise ValueError("{:s} must be greater than 0".format(name))
-            else:
-                pass
+                raise ValueError(f"{name} must be greater than 0")
         else:
-            raise TypeError("{:s} must be an integer".format(name))
+            raise TypeError(f"{name} must be an integer")
