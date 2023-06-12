@@ -14,4 +14,5 @@ class MyList(list):
         Args:
             self (object) - object
         """
-        print(sorted(self))
+        sorted_list = sorted(self)
+        print(sorted_list)

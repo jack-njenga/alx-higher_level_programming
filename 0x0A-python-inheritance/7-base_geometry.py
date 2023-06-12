@@ -4,9 +4,10 @@
 BaseGeometry (based on 6-base_geometry.py).
 V3
 """
+Base = __import__("6-base_geometry").BaseGeometry
 
 
-class BaseGeometry(object):
+class BaseGeometry(Base):
     """
     BaseGeometry
     V3
@@ -22,7 +23,8 @@ class BaseGeometry(object):
         """
         this methon validates the value
         """
-        if type(value) != int:
+        if value.__class__ == int:
+            if value <= 0:
+                raise ValueError("{} must be greater than 0".format(name))
+        else:
             raise TypeError("{} must be an integer".format(name))
-        if value <= 0:
-            raise ValueError("{} must be greater than 0".format(name))
