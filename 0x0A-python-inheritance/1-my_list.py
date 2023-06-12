@@ -6,11 +6,12 @@ MyList that inherits from list.
 
 class MyList(list):
     """
-    Inherits from:
-        list: Built-in Python list class
+    Inherits fr*m  list the Built-in Python list class
     """
     def print_sorted(self):
         """
         Prints the elements of the list in ascending order.
+        Args:
+            self (object) - object
         """
         print(sorted(self))
