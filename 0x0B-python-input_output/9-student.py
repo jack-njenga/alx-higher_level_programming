@@ -8,7 +8,7 @@ Date Created: 13 June 2023
 """
 
 
-class Student(object):
+class Student:
     """
     Student class
     """
