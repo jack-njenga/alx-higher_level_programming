@@ -2,10 +2,10 @@
 """
 json string to python object
 """
+import json
 
 
 def from_json_string(my_str):
-    import json
     """
     returns an object (Python data structure) represented
     by a JSON stringi.

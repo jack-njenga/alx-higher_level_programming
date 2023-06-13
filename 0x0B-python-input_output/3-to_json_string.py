@@ -2,10 +2,10 @@
 """
 python object to json
 """
+import json
 
 
 def to_json_string(my_obj):
-    import json
     """
     returns the JSON representation of an object (string):
     Args:
