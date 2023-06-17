@@ -22,20 +22,20 @@ class Rectangle(Base):
             id (int): ID value for the rectangle (default: None).
         """
         if type(width) == int:
-            if width >= 0:
+            if width > 0:
                 self.__width = width
             else:
-                raise ValueError("width must be >= 0")
+                raise ValueError("{} must be > 0".format("width"))
         else:
-            raise TypeError("width must be an int")
+            raise TypeError("{} must be an integer".format("width"))
 
         if type(height) == int:
-            if height >= 0:
+            if height > 0:
                 self.__height = height
             else:
-                raise ValueError("height must be >= 0")
+                raise ValueError("{} must be > 0".format("height"))
         else:
-            raise TypeError("height must be an int")
+            raise TypeError("{} must be an integer".format("height"))
 
         if type(x) == int:
             if x >= 0:
@@ -43,7 +43,7 @@ class Rectangle(Base):
             else:
                 raise ValueError("x must be >= 0")
         else:
-            raise TypeError("x must be an int")
+            raise TypeError("{} must be an integer".format("x"))
 
         if type(y) == int:
             if y >= 0:
@@ -51,7 +51,7 @@ class Rectangle(Base):
             else:
                 raise ValueError("y must be >= 0")
         else:
-            raise TypeError("y must be an int")
+            raise TypeError("{} must be an integer".format("y"))
 
         super().__init__(id)
 
@@ -67,7 +67,13 @@ class Rectangle(Base):
         """
         set new width
         """
-        self.__width = new
+        if type(new) == int:
+            if new > 0:
+                self.__width = new
+            else:
+                raise ValueError("width must be > 0")
+        else:
+            raise TypeError("width must be an integer")
 
     @property
     def height(self):
@@ -81,7 +87,13 @@ class Rectangle(Base):
         """
         set new height
         """
-        self.__height = new
+        if type(new) == int:
+            if new > 0:
+                self.__height = new
+            else:
+                raise ValueError("height must be > 0")
+        else:
+            raise TypeError("height must be an integer")
 
     @property
     def x(self):
@@ -94,7 +106,13 @@ class Rectangle(Base):
         """
         set new x co-ordinates
         """
-        self.__x = new
+        if type(new) == int:
+            if new >= 0:
+                self.__x = new
+            else:
+                raise ValueError("x must be >= 0")
+        else:
+            raise TypeError("x must be an integer")
 
     @property
     def y(self):
@@ -108,4 +126,75 @@ class Rectangle(Base):
         """
         set new y co-ordinates
         """
-        self.__y = new
+        if type(new) == int:
+            if new >= 0:
+                self.__y = new
+            else:
+                raise ValueError("y must be >= 0")
+        else:
+            raise TypeError("y must be an integer")
+    
+    def area(self):
+        """
+        get the rectangle area
+        """
+        w = self.__width
+        h = self.__height
+        return (w * h)
+
+    def display(self):
+        """
+        Draws or prints the rectangle with "#" charactes
+        """
+        char = "#"
+        w = self.__width
+        h = self.__height
+        x = self.__x
+        y = self.__y
+        for i in range(y):
+            print()
+        for i in range(h):
+            print(" " * x, end="")
+            print(char * w)
+
+    def __str__(self):
+        """
+        str for printing rectangle details
+        """
+        _id = self.id
+        x = self.x
+        y = self.y
+        w = self.width
+        h = self.height
+        _str = "[Rectangle] ({}) {}/{} - {}/{}".format(_id, x, y, w, h)
+        return _str
+
+    def update(self, *args, **kwargs):
+        """
+        This is for updating the rectangle attributes
+        """
+        args_map = {0: "id", 1: "width", 2: "height", 3: "x", 4: "y"}
+        kwargs_map = {"id": "id", "width": "width", "height": "height", "x": "x", "y": "y"}
+        if len(args):
+            for n, arg in enumerate(args):
+                if n in args_map:
+                    setattr(self, args_map[n], arg)
+                
+        else:
+            for attr_name, kwarg_key in kwargs_map.items():
+                if kwarg_key in kwargs:
+                    setattr(self, attr_name, kwargs[kwarg_key])
+
+    def to_dictionary(self):
+        """
+        Returns a dictionary containing all the data of a rectangle
+        """
+        dic = {}
+        dic["id"] = self.id
+        dic["width"] = self.width
+        dic["height"] = self.height
+        dic["x"] = self.x
+        dic["y"] = self.y
+
+        return dic
+        
