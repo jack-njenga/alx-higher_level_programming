@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 """
-
+Filename: rectangle.py
+Description: Contains the rectangle class of the models
+Author: --i--
+Date created: 20 Jun 2023
 """
 from models.base import Base
-
 
 
 class Rectangle(Base):
@@ -101,6 +103,7 @@ class Rectangle(Base):
         get x co-ordinates
         """
         return self.__x
+
     @x.setter
     def x(self, new):
         """
@@ -133,7 +136,7 @@ class Rectangle(Base):
                 raise ValueError("y must be >= 0")
         else:
             raise TypeError("y must be an integer")
-    
+
     def area(self):
         """
         get the rectangle area
@@ -174,12 +177,13 @@ class Rectangle(Base):
         This is for updating the rectangle attributes
         """
         args_map = {0: "id", 1: "width", 2: "height", 3: "x", 4: "y"}
-        kwargs_map = {"id": "id", "width": "width", "height": "height", "x": "x", "y": "y"}
+        w = "width"
+        h = "height"
+        kwargs_map = {"id": "id", w: w, h: h, "x": "x", "y": "y"}
         if len(args):
             for n, arg in enumerate(args):
                 if n in args_map:
                     setattr(self, args_map[n], arg)
-                
         else:
             for attr_name, kwarg_key in kwargs_map.items():
                 if kwarg_key in kwargs:
@@ -197,4 +201,3 @@ class Rectangle(Base):
         dic["y"] = self.y
 
         return dic
-        

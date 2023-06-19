@@ -1,15 +1,22 @@
 #!/usr/bin/python3
 """
+filename: square.py
+Description: Contains the Square class of the models
+Author: --i--
+Date Created: 20 Jun 2023
 """
 from models.rectangle import Rectangle as rec
 
 
-
 class Square(rec):
     """
+    Square Class
     """
 
     def __init__(self, size, x=0, y=0, id=None):
+        """
+        Initialization
+        """
         super().__init__(size, size, x, y, id)
         self.size = size
 
@@ -54,7 +61,7 @@ class Square(rec):
             for attr_name, kwarg_key in kwargs_map.items():
                 if kwarg_key in kwargs:
                     setattr(self, attr_name, kwargs[kwarg_key])
-           
+
     def to_dictionary(self):
         """
         Returns a dictionary containing all the data of a square
