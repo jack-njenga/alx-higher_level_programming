@@ -9,7 +9,7 @@ def list_states(username, password, database):
     lists all states from the database hbtn_0e_0_usa
     Note :
         if password stars with "#" escape it with "\"
-        => so the correct way "\" instead
+        => so the correct way "\" followed by "#" instead
     """
     import MySQLdb as sqldb
     db_config = {
@@ -24,7 +24,6 @@ def list_states(username, password, database):
         cursor = db.cursor()
     except sqldb.Error as e:
         print(e)
-        sys.exit(1)
 
     query = "SELECT * FROM states ORDER BY states.id ASC"
     try:
@@ -33,7 +32,6 @@ def list_states(username, password, database):
     except sqldb.Error as e:
         print(e)
         db.close()
-        sys.exit(1)
 
     for state in states:
         print(state)
