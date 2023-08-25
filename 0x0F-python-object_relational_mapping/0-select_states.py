@@ -19,19 +19,13 @@ def list_states(username, password, database):
             "passwd": password,
             "db": database
             }
-    try:
-        db = sqldb.connect(**db_config)
-        cursor = db.cursor()
-    except sqldb.Error as e:
-        print(e)
+    db = sqldb.connect(**db_config)
+    cursor = db.cursor()
 
     query = "SELECT * FROM states ORDER BY states.id ASC"
-    try:
-        cursor.execute(query)
-        states = cursor.fetchall()
-    except sqldb.Error as e:
-        print(e)
-        db.close()
+
+    cursor.execute(query)
+    states = cursor.fetchall()
 
     for state in states:
         print(state)

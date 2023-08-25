@@ -9,15 +9,18 @@ if __name__ == "__main__":
     if len(sys.argv) == 5:
         import MySQLdb
 
+        name = sys.argv[4]
         db = MySQLdb.connect(host="localhost", port=3306, user=sys.argv[1],
-                passwd=sys.argv[2], db=sys.argv[3])
+                             passwd=sys.argv[2], db=sys.argv[3])
         c = db.cursor()
-        qry = "SELECT cities.id, cities.name, states.name FROM cities JOIN states ON cities.state_id = states.id WHERE states.name = %s ORDER BY cities.id"
-        c.execute(qry, (sys.argv[4],))
+        qry = ("SELECT cities.name FROM states, cities WHERE "
+               "cities.state_id = states.id AND states.name "
+               "like '{}' ORDER BY cities.id").format(name)
+
+        c.execute(qry)
         res = c.fetchall()
         for i in res:
-            print(row)
+            print(i)
 
         c.close()
-        if db:
-            db.close()
+        db.close()

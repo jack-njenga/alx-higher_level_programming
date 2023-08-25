@@ -21,8 +21,10 @@ def display_state(user, passwd, db_name, state_name):
     db = MySQLdb.connect(**db_config)
     c = db.cursor()
 
-    query = "SELECT * FROM states WHERE name LIKE name = %s ORDER BY id"
-    c.execute(query, (state_name,))
+    query = ("SELECT * FROM states "
+             "WHERE BINARY states.name='{}' "
+             "ORDER BY states.id ASC").format(state_name)
+    c.execute(query)
     states = c.fetchall()
 
     for state in states:

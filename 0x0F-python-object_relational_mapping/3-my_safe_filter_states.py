@@ -1,5 +1,6 @@
-#!/user/bin/python3
+#!/usr/bin/python3
 """
+sql injection
 """
 
 
@@ -18,8 +19,9 @@ def state_search(user, passwd, db_name, name):
             }
     db = MySQLdb.connect(**db_config)
     c = db.cursor()
-    query = "SELECT * FROM states WHERE name = %s ORDER BY id"
-    c.execute(query, (name,))
+    query = "SELECT * FROM states WHERE BINARY name='{}' ORDER\
+             BY id ASC".format(name)
+    c.execute(query)
 
     states = c.fetchall()
     for state in states:
