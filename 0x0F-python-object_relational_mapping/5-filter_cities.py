@@ -3,8 +3,10 @@
 lists all cities of that state, using the database hbtn_0e_4_usa
 """
 
+
 if __name__ == "__main__":
     import sys
+    import MySQLdb
 
     if len(sys.argv) == 5:
         import MySQLdb
@@ -19,8 +21,11 @@ if __name__ == "__main__":
 
         c.execute(qry)
         res = c.fetchall()
+        lst = []
         for i in res:
-            print(i)
+            lst.append(i[0])
+            # print(i[0], sep=", ", end="\n")
+        print(*lst, sep=", ")
 
         c.close()
         db.close()

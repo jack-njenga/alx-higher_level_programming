@@ -13,7 +13,7 @@ if __name__ == "__main__":
         user = argv[1]
         pwd = argv[2]
         db = argv[3]
-        
+
         url = f"mysql+mysqlconnector://{user}:{pwd}@localhost:3306/{db}"
         engine = create_engine(url)
         session = sessionmaker(bind=engine)()

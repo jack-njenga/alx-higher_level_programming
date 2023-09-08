@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """
- lists all State objects from the database hbtn_0e_6_usa
+Lists all State objects from the database hbtn_0e_6_usa
 """
 
 if __name__ == "__main__":
     from sys import argv
-    from model_state import Base, State
+    from model_state import State
     import sqlalchemy
     from sqlalchemy.orm import sessionmaker
 
