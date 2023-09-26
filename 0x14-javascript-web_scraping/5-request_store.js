@@ -6,16 +6,14 @@ const path = process.argv[3];
 const fs = require('fs');
 const request = require('request');
 
-request.get(url, (err, response, body) => {
+request(url, function (err, response, body) {
   if (err) {
     console.error(err);
     process.exit(1);
   }
-  fs.writeFile(path, body, 'utf8', (err) => {
+  fs.writeFile(path, body, 'utf-8', err => {
     if (err) {
-      console.error(err);
-      process.exit(1);
+      console.log(err);
     }
-    console.log('Content saved');
   });
 });

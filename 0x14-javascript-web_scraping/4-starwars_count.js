@@ -9,6 +9,7 @@ const url = `${args[2]}`;
 
 request.get(url, (error, response, body) => {
   if (error) {
+    console.error(error);
     process.exit(1);
   }
   const data = JSON.parse(body);
